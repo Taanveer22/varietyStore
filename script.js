@@ -9,6 +9,12 @@ const loadAllProducts = async (query = "") => {
   // console.log(data);
   if (data.length > 0) {
     document.getElementById("loading-container").style.display = "none";
+    document.getElementById("not-found").style.display = "none";
+  }
+
+  if (!data.length) {
+    document.getElementById("not-found").style.display = "block";
+    document.getElementById("loading-container").style.display = "none";
   }
   const productsContainer = document.querySelector("#products-container");
   productsContainer.innerHTML = "";
