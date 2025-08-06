@@ -2,11 +2,14 @@ console.log("connected");
 
 // function 01=================================================
 const loadAllProducts = async (query = "") => {
+  document.getElementById("loading-container").style.display = "block";
   console.log(query);
   const res = await fetch(`https://fakestoreapi.com/products${query}`);
   const data = await res.json();
   // console.log(data);
-
+  if (data.length > 0) {
+    document.getElementById("loading-container").style.display = "none";
+  }
   const productsContainer = document.querySelector("#products-container");
   productsContainer.innerHTML = "";
   // console.log(productsContainer);
@@ -23,7 +26,9 @@ const loadAllProducts = async (query = "") => {
     <h3>${product.title.slice(0, 15)}</h3>
     <div class="price-category">
       <h4>price: ${product.price}</h4>
-      <button class="category-btn" disabled>category: ${product.category}</button>
+      <button class="category-btn" disabled>category: ${
+        product.category
+      }</button>
     </div>
     <hr />
     <div class="price-container">
