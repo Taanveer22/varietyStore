@@ -101,17 +101,20 @@
     align-items: center;
     gap: 7px;
 }
-.cart-titles{
+.cart-title{
     display: flex;
     justify-content: space-around;
     padding: 10px;
 }
+.cart-data-sort{
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
 .loading-container{
     display: none;
 }
 #not-found{
     display: none;
-}
-.cart-info{
-    display: flex;
 }
